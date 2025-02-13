@@ -9,12 +9,20 @@
 </head>
 
 <body>
-
+    <div class="model" id="model">
+        <form onsubmit="formSubmit()" method="get" action="#">
+            <label for="name">Player Name</label>
+            <br>
+            <input type="text" name="name" id="name" placeholder="Please enter player name">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
     <header>
         <h1>Tic Tak Teo</h1>
         <div class="player-container">
-            <p class="player-1">Player 1: <label id="player-1" for="">Meet</label></p>
-            <p class="player-2">Player 2: <label id="player-2" for="">Neel</label></p>
+            <p class="player-1" id="player-1">Player 1</p>
+            <p class="player-2" id="player-2">Player 2</p>
         </div>
     </header>
 

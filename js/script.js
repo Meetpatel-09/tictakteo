@@ -1,7 +1,35 @@
 const boxs = document.getElementsByClassName("grid-items");
+const player1 = document.getElementById("player-1");
+const player2 = document.getElementById("player-2");
+const model = document.getElementById("model");
+const inuptBox = document.getElementById("name");
 
 let currentTurn = 1;
 let totalTurns = 0;
+
+let selectedPlayer = 0;
+
+player1.addEventListener("click", () => {
+    model.style.display = "block";
+    selectedPlayer = 1;
+});
+
+player2.addEventListener("click", () => {
+    model.style.display = "block";
+    selectedPlayer = 2;
+});
+
+const formSubmit = (event) => {
+    model.style.display = "none";
+    const playerName = inuptBox.value;
+    if (selectedPlayer == 1) {
+        player1.innerHTML = playerName;
+    } else {
+        player2.innerHTML = playerName;
+    }
+    inuptBox.value = "";
+    event.preventDefault();
+};
 
 let values = ["", "", "", "", "", "", "", "", ""];
 let winCases = [
@@ -16,7 +44,9 @@ let winCases = [
 ];
 
 const afterWin = () => {
-    currentTurn == 1 ? alert("Player 2 Won") : alert("Player 1 Won");
+    currentTurn == 1
+        ? alert(`${player2.innerHTML} Won`)
+        : alert(`${player1.innerHTML} Won`);
     values = ["", "", "", "", "", "", "", "", ""];
     for (let i = 0; i < 9; i++) {
         boxs[i].innerHTML = "";
